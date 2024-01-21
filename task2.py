@@ -4,7 +4,7 @@ from collections import deque
 
 def is_palindrome(s):
     s = s.lower()
-    s = re.sub('[^0-9a-zA-Z]+', '', s)
+    s = re.sub("[^0-9a-zA-Z]+", "", s)
     d = deque(s)
     while len(d) > 1:
         if d.popleft() != d.pop():
@@ -22,4 +22,4 @@ if __name__ == "__main__":
     ]
 
     for palindrome in palindromes:
-        print('"'+palindrome+'"', is_palindrome(palindrome))
+        print('"' + palindrome + '"', is_palindrome(palindrome))

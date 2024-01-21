@@ -10,8 +10,8 @@ fake = Faker()
 
 def generate_request():
     task = {
-        'id': fake.random_number(),
-        'name': fake.name(),
+        "id": fake.random_number(),
+        "name": fake.name(),
     }
 
     queue.put(task)
@@ -26,10 +26,13 @@ def process_request():
         print("Черга пуста")
 
 
-if __name__ == '__main__':
-    while True:
-        if random.randint(0, 1) < 0.5:
-            generate_request()
+if __name__ == "__main__":
+    try:
+        while True:
+            if random.randint(0, 1) < 0.5:
+                generate_request()
 
-        process_request()
-        sleep(1)
+            process_request()
+            sleep(1)
+    except KeyboardInterrupt:
+        print("Програма завершується")
